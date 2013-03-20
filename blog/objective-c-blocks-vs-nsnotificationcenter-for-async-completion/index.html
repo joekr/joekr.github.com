@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Objective-C Blocks vs NSNotificationCenter for async completion - Joe Kratzat</title>
+  <meta name="author" content="Joe Kratzat">
+
+  
+  <meta name="description" content="I&#8217;m working on a project that was created pre iOS 4.0, and is now only supporting iOS 4 and later. This means I am able to finally use Blocks. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Joe Kratzat" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '44954511']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Joe Kratzat</a></h1>
+  
+    <h2>I'm a passionate software developer, that loves to explore.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:joekr.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/publications">Publications</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Objective-C Blocks vs NSNotificationCenter for Async Completion</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-31T21:43:00-05:00" pubdate data-updated="true">Dec 31<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;m working on a project that was created pre iOS 4.0, and is now only supporting iOS 4 and later. This means I am able to finally use <a href="http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html">Blocks</a>. So what was being used to inform an object when a called async method passed or failed? <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/Reference/Reference.html">NSNotificationCenter</a>. This was the original code and it worked pretty well:</p>
+
+<div><script src='https://gist.github.com/4422401.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>It allowed the method getSubscriptionFromServer to inform the caller in the Subscription class to know when getSubscriptionFromServer was complete, or failed. This might not have been the best way to handle this, but it doesn&#8217;t matter now.</p>
+
+<p>Luckly I was able to make some changes, like dropping iOS 3.0 support and included the use of Blocks. This alowed me to change the above code to something like the following:</p>
+
+<div><script src='https://gist.github.com/4422453.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>This helped clean up the code and encapsulate a lot of what was going on. The person using the Datacontroller class no longer needed to know about the Notifications. The method signature will now tell them all they need to know inorder to call getSubscriptionFromServer.</p>
+
+<p>While Blocks is nothing new, I was happy to be able to finally use them to help clean up the codebase.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Joe Kratzat</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-31T21:43:00-05:00" pubdate data-updated="true">Dec 31<span>st</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/objective-c/'>Objective-C</a>, <a class='category' href='/blog/categories/software-development/'>Software Development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/" data-via="joekratzat" data-counturl="http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/spring-ws-soap-no-adapter-for-endpoint/" title="Previous Post: Spring-ws SOAP 'No adapter for endpoint'">&laquo; Spring-ws SOAP 'No adapter for endpoint'</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/just-commit/" title="Next Post: Just Commit">Just Commit &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/just-commit/">Just Commit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/">Objective-C Blocks vs NSNotificationCenter for async completion</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/spring-ws-soap-no-adapter-for-endpoint/">Spring-ws SOAP 'No adapter for endpoint'</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/git-a-powerful-front-end-to-subversion/">Git: a powerful front-end to Subversion</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/unity3d-and-json-parsing/">Unity3D and JSON parsing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/joekr">@joekr</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'joekr',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/Joe Kratzat?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Joe Kratzat -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

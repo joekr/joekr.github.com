@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Unity3D | Joe Kratzat]]></title>
+  <link href="http://joekr.github.com/blog/categories/unity3d/atom.xml" rel="self"/>
+  <link href="http://joekr.github.com/"/>
+  <updated>2013-03-19T23:12:30-04:00</updated>
+  <id>http://joekr.github.com/</id>
+  <author>
+    <name><![CDATA[Joe Kratzat]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unity3D and JSON parsing]]></title>
+    <link href="http://joekr.github.com/blog/unity3d-and-json-parsing/"/>
+    <updated>2011-04-21T21:54:00-04:00</updated>
+    <id>http://joekr.github.com/blog/unity3d-and-json-parsing</id>
+    <content type="html"><![CDATA[<p>Today I was working on a Unity3D web player project that requires pulling JSON from a remote server. I needed a way to parse the JSON string. After working with multiple JSON libraries (Jayrock being the main one) I found that LitJson worked well with in Unity once you had the DLL.
+I was unable to get Jayrock to work with Unity's web player. Turns out that Unity desktop builds use a subset of the Mono SDK, which can be changed to use the full SDK. However, the web player can not be changed, limiting access to System.web which is needed by Jayrock.</p>
+
+<p>While running ./configure it would output the following error message:</p>
+
+<blockquote><p>configure: error: Please install mono version 1.1.17 or later</p></blockquote>
+
+<p>I did confirm my mono version:</p>
+
+<blockquote><p>Mono JIT compiler version 2.6.7</p></blockquote>
+
+<p>After using the Googles for a bit ran accross a post a link to download a zip file that had the DLL already built: Download <a href="http://sourceforge.net/projects/litjson/files/litjson/0.5.0/litjson-0.5.0-bin.zip/download">litjson-0.5.0-bin.zip (224.2 KB)</a></p>
+
+<p>With some code changes JsonMapper seems to be working and I'm able to parse the JSON.</p>
+
+<blockquote><p>List<LessonProgress> listOfLessonProgress = JsonMapper.ToObject&lt;List<LessonProgress>>(www.text);</p></blockquote>
+
+<p><strong>What I was working with:</strong></p>
+
+<p>Unity3D version: 3.3.0f4</p>
+
+<p>MonoDevelop version: 2.4.2</p>
+
+<p>OS: OSX (10.6.7)</p>
+]]></content>
+  </entry>
+  
+</feed>

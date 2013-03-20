@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SOAP | Joe Kratzat]]></title>
+  <link href="http://joekr.github.com/blog/categories/soap/atom.xml" rel="self"/>
+  <link href="http://joekr.github.com/"/>
+  <updated>2013-03-19T23:12:30-04:00</updated>
+  <id>http://joekr.github.com/</id>
+  <author>
+    <name><![CDATA[Joe Kratzat]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Spring-ws SOAP 'No adapter for endpoint']]></title>
+    <link href="http://joekr.github.com/blog/spring-ws-soap-no-adapter-for-endpoint/"/>
+    <updated>2012-09-26T20:40:00-04:00</updated>
+    <id>http://joekr.github.com/blog/spring-ws-soap-no-adapter-for-endpoint</id>
+    <content type="html"><![CDATA[<p>Why am I using SOAP? I don't want to talk about it. Basically I have a need for a Spring MVC project to provide a Spring-ws SOAP endpoint.
+After following the Spring documentation <a href="http://static.springsource.org/spring-ws/sites/2.0/reference/html/tutorial.html#d5e190">here</a> and downloading the source code <a href="http://static.springsource.org/spring-ws/sites/2.0/downloads/releases.html">here</a> I noticed something. The documentation is using jdom for marshalling. While the source code is using jdom2.</p>
+
+<p>After struggling for a while I find out that using jdom, even with everything setup correctly, will result in the following error:</p>
+
+<blockquote><p>'java.lang.IllegalStateException: No adapter for endpoint'</p></blockquote>
+
+<p>This, I guess, is a <a href="https://jira.springsource.org/browse/SWS-782?page=com.atlassian.jira.plugin.system.issuetabpanels:changehistory-tabpanel">known issue</a>. The thing to do is use jdom2, or something else like JAXB, Castor, etc.</p>
+
+<p>I know documentation is hard to keep up-to-date. I just thought I should put something else out on the net incause others have the same issue.</p>
+]]></content>
+  </entry>
+  
+</feed>

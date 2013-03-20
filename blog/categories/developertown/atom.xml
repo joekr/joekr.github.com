@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DeveloperTown | Joe Kratzat]]></title>
+  <link href="http://joekr.github.com/blog/categories/developertown/atom.xml" rel="self"/>
+  <link href="http://joekr.github.com/"/>
+  <updated>2013-03-19T23:12:30-04:00</updated>
+  <id>http://joekr.github.com/</id>
+  <author>
+    <name><![CDATA[Joe Kratzat]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Fun At MobileX]]></title>
+    <link href="http://joekr.github.com/blog/a-little-fun-at-mobilex/"/>
+    <updated>2011-04-18T22:18:00-04:00</updated>
+    <id>http://joekr.github.com/blog/a-little-fun-at-mobilex</id>
+    <content type="html"><![CDATA[<p>A coworker and I attened <a href="http://mobilexconference.com/lexington2011/">MobileX</a> in Lexington Ky this past week. It was a great time!
+Since we are a new smaller company we thought we should promote the company, but how? After much discussion the idea of having a simple shirt won (time/money constraints). The front had the company name while the back had a logo. It was pretty good, but we felt it needed just a bit more.</p>
+
+<p>Since this was a mobile conference we figured there should be something somewhat mobile about theshirts. What about a QR Code? It seemed pretty simple and a fine way to go. The QR code was added to the logo on the back side of the shirt.</p>
+
+<p>DeveloperTown Logo:
+<img class="center" src="/images/24845098-Screen_shot_2011-04-18_at_2.16.04_PM.png" width="312" height="69" title="image" alt="images"></p>
+
+<p>This QR code is pointing to developertown.com/mobile. At the time we didn't know what to put on the site. The night before, with the help of an amazing graphic designer at DeveloperTown, we put something together. It needed to be something that would help break the ice and help introduce us to people. Below is what we came up with:
+<img class="center" src="/images/24844060-photo.png" width="500" height="374" title="image" alt="images"></p>
+
+<p>I think we got a few laughs and quite a few people talking to us from such a silly simple idea.
+<img class="center" src="/images/24840821-Screen_shot_2011-04-18_at_11.53.20_AM.png" width="500" height="404" title="image" alt="images"></p>
+
+<p><strong>Objective Complete!</strong></p>
+]]></content>
+  </entry>
+  
+</feed>
