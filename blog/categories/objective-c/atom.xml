@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Objective-C | Joe Kratzat]]></title>
+  <link href="http://joekr.github.com/blog/categories/objective-c/atom.xml" rel="self"/>
+  <link href="http://joekr.github.com/"/>
+  <updated>2013-03-19T22:40:02-04:00</updated>
+  <id>http://joekr.github.com/</id>
+  <author>
+    <name><![CDATA[Joe Kratzat]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Objective-C Blocks vs NSNotificationCenter for async completion]]></title>
+    <link href="http://joekr.github.com/blog/2012/12/31/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/"/>
+    <updated>2012-12-31T21:43:00-05:00</updated>
+    <id>http://joekr.github.com/blog/2012/12/31/objective-c-blocks-vs-nsnotificationcenter-for-async-completion</id>
+    <content type="html"><![CDATA[<p>I'm working on a project that was created pre iOS 4.0, and is now only supporting iOS 4 and later. This means I am able to finally use <a href="http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html">Blocks</a>. So what was being used to inform an object when a called async method passed or failed? <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/Reference/Reference.html">NSNotificationCenter</a>. This was the original code and it worked pretty well:</p>
+
+<p><div><script src='https://gist.github.com/4422401.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<p>It allowed the method getSubscriptionFromServer to inform the caller in the Subscription class to know when getSubscriptionFromServer was complete, or failed. This might not have been the best way to handle this, but it doesn't matter now.</p>
+
+<p>Luckly I was able to make some changes, like dropping iOS 3.0 support and included the use of Blocks. This alowed me to change the above code to something like the following:</p>
+
+<p><div><script src='https://gist.github.com/4422453.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<p>This helped clean up the code and encapsulate a lot of what was going on. The person using the Datacontroller class no longer needed to know about the Notifications. The method signature will now tell them all they need to know inorder to call getSubscriptionFromServer.</p>
+
+<p>While Blocks is nothing new, I was happy to be able to finally use them to help clean up the codebase.</p>
+]]></content>
+  </entry>
+  
+</feed>
