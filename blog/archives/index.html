@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Joe Kratzat</title>
+  <title>Blog Archive - Joe Kratzat</title>
   <meta name="author" content="Joe Kratzat">
 
   
-  <meta name="description" content="Why am I using SOAP? I don&#8217;t want to talk about it. Basically I have a need for a Spring MVC project to provide a Spring-ws SOAP endpoint. &hellip;">
+  <meta name="description" content=" Blog Archive 2013 Spring-ws SOAP &#8216;No adapter for endpoint&#8217;
+Mar 19 2013 Recent Posts Spring-ws SOAP 'No adapter for endpoint' ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://joekratzat.com">
+  <link rel="canonical" href="http://joekratzat.com/blog/archives">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Joe Kratzat" type="application/atom+xml">
@@ -63,60 +64,36 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/">Spring-ws SOAP &#8216;No Adapter for Endpoint&#8217;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-19T20:40:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2013</time>
-        
-      </p>
+    <h1 class="entry-title">Blog Archive</h1>
     
   </header>
+  
+  <div id="blog-archives">
 
 
-  <div class="entry-content"><p>Why am I using SOAP? I don&#8217;t want to talk about it. Basically I have a need for a Spring MVC project to provide a Spring-ws SOAP endpoint.
-After following the Spring documentation <a href="http://static.springsource.org/spring-ws/sites/2.0/reference/html/tutorial.html#d5e190">here</a> and downloading the source code <a href="http://static.springsource.org/spring-ws/sites/2.0/downloads/releases.html">here</a> I noticed something. The documentation is using jdom for marshalling. While the source code is using jdom2.</p>
 
-<p>After struggling for a while I find out that using jdom, even with everything setup correctly, will result in the following error:</p>
+  
+  <h2>2013</h2>
 
-<blockquote><p>&#8216;java.lang.IllegalStateException: No adapter for endpoint&#8217;</p></blockquote>
+<article>
+  
+<h1><a href="/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/">Spring-ws SOAP &#8216;No adapter for endpoint&#8217;</a></h1>
+<time datetime="2013-03-19T20:40:00-04:00" pubdate><span class='month'>Mar</span> <span class='day'>19</span> <span class='year'>2013</span></time>
 
-<p>This, I guess, is a <a href="https://jira.springsource.org/browse/SWS-782?page=com.atlassian.jira.plugin.system.issuetabpanels:changehistory-tabpanel">known issue</a>. The thing to do is use jdom2, or something else like JAXB, Castor, etc.</p>
 
-<p>I know documentation is hard to keep up-to-date. I just thought I should put something else out on the net incause others have the same issue.</p>
+</article>
+
 </div>
-  
-  
 
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+</article>
+
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -124,7 +101,7 @@ After following the Spring documentation <a href="http://static.springsource.org
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/">Spring-ws SOAP &#8216;No adapter for endpoint&#8217;</a>
+        <a href="/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/">Spring-ws SOAP 'No adapter for endpoint'</a>
       </li>
     
   </ul>
@@ -136,6 +113,7 @@ After following the Spring documentation <a href="http://static.springsource.org
 
   
 </aside>
+
 
     </div>
   </div>
