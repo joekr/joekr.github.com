@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://joekratzat.com/sitemap.xml 
+Sitemap: http://joekr.github.com/sitemap.xml 
