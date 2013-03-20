@@ -9,6 +9,8 @@ I'm working on a project that was created pre iOS 4.0, and is now only supportin
 
 {% gist 4422401 %}
 
+<!-- more -->
+
 It allowed the method getSubscriptionFromServer to inform the caller in the Subscription class to know when getSubscriptionFromServer was complete, or failed. This might not have been the best way to handle this, but it doesn't matter now.
 
 Luckly I was able to make some changes, like dropping iOS 3.0 support and included the use of Blocks. This alowed me to change the above code to something like the following:
