@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Joe Kratzat]]></title>
-  <link href="http://joekratzat.com/atom.xml" rel="self"/>
-  <link href="http://joekratzat.com/"/>
-  <updated>2013-03-19T20:44:56-04:00</updated>
-  <id>http://joekratzat.com/</id>
+  <link href="http://joekr.github.com/atom.xml" rel="self"/>
+  <link href="http://joekr.github.com/"/>
+  <updated>2013-03-19T21:12:01-04:00</updated>
+  <id>http://joekr.github.com/</id>
   <author>
     <name><![CDATA[Joe Kratzat]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Spring-ws SOAP 'No adapter for endpoint']]></title>
-    <link href="http://joekratzat.com/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/"/>
+    <link href="http://joekr.github.com/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint/"/>
     <updated>2013-03-19T20:40:00-04:00</updated>
-    <id>http://joekratzat.com/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint</id>
+    <id>http://joekr.github.com/blog/2013/03/19/spring-ws-soap-no-adapter-for-endpoint</id>
     <content type="html"><![CDATA[<p>Why am I using SOAP? I don&#8217;t want to talk about it. Basically I have a need for a Spring MVC project to provide a Spring-ws SOAP endpoint.
 After following the Spring documentation <a href="http://static.springsource.org/spring-ws/sites/2.0/reference/html/tutorial.html#d5e190">here</a> and downloading the source code <a href="http://static.springsource.org/spring-ws/sites/2.0/downloads/releases.html">here</a> I noticed something. The documentation is using jdom for marshalling. While the source code is using jdom2.</p>
 
