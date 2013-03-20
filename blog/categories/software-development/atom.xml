@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Software Development | Joe Kratzat]]></title>
   <link href="http://joekr.github.com/blog/categories/software-development/atom.xml" rel="self"/>
   <link href="http://joekr.github.com/"/>
-  <updated>2013-03-19T22:40:02-04:00</updated>
+  <updated>2013-03-19T23:12:30-04:00</updated>
   <id>http://joekr.github.com/</id>
   <author>
     <name><![CDATA[Joe Kratzat]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Objective-C Blocks vs NSNotificationCenter for async completion]]></title>
-    <link href="http://joekr.github.com/blog/2012/12/31/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/"/>
+    <link href="http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/"/>
     <updated>2012-12-31T21:43:00-05:00</updated>
-    <id>http://joekr.github.com/blog/2012/12/31/objective-c-blocks-vs-nsnotificationcenter-for-async-completion</id>
+    <id>http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion</id>
     <content type="html"><![CDATA[<p>I'm working on a project that was created pre iOS 4.0, and is now only supporting iOS 4 and later. This means I am able to finally use <a href="http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html">Blocks</a>. So what was being used to inform an object when a called async method passed or failed? <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/Reference/Reference.html">NSNotificationCenter</a>. This was the original code and it worked pretty well:</p>
 
 <p><div><script src='https://gist.github.com/4422401.js'></script>
@@ -40,9 +40,9 @@
   
   <entry>
     <title type="html"><![CDATA[Spring-ws SOAP 'No adapter for endpoint']]></title>
-    <link href="http://joekr.github.com/blog/2012/09/26/spring-ws-soap-no-adapter-for-endpoint/"/>
+    <link href="http://joekr.github.com/blog/spring-ws-soap-no-adapter-for-endpoint/"/>
     <updated>2012-09-26T20:40:00-04:00</updated>
-    <id>http://joekr.github.com/blog/2012/09/26/spring-ws-soap-no-adapter-for-endpoint</id>
+    <id>http://joekr.github.com/blog/spring-ws-soap-no-adapter-for-endpoint</id>
     <content type="html"><![CDATA[<p>Why am I using SOAP? I don't want to talk about it. Basically I have a need for a Spring MVC project to provide a Spring-ws SOAP endpoint.
 After following the Spring documentation <a href="http://static.springsource.org/spring-ws/sites/2.0/reference/html/tutorial.html#d5e190">here</a> and downloading the source code <a href="http://static.springsource.org/spring-ws/sites/2.0/downloads/releases.html">here</a> I noticed something. The documentation is using jdom for marshalling. While the source code is using jdom2.</p>
 
@@ -58,9 +58,9 @@ After following the Spring documentation <a href="http://static.springsource.org
   
   <entry>
     <title type="html"><![CDATA[Git: a powerful front-end to Subversion]]></title>
-    <link href="http://joekr.github.com/blog/2012/01/28/git-a-powerful-front-end-to-subversion/"/>
+    <link href="http://joekr.github.com/blog/git-a-powerful-front-end-to-subversion/"/>
     <updated>2012-01-28T22:13:00-05:00</updated>
-    <id>http://joekr.github.com/blog/2012/01/28/git-a-powerful-front-end-to-subversion</id>
+    <id>http://joekr.github.com/blog/git-a-powerful-front-end-to-subversion</id>
     <content type="html"><![CDATA[<p><a href="http://git-scm.com/">Git</a> is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.</p>
 
 <p>When I had to move back to <a href="http://subversion.apache.org/">SVN</a> I didn't really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a <a href="http://schacon.github.com/git/git-svn.html">svn command</a> which allows me to use Git as my front end to SVN.</p>
@@ -91,9 +91,9 @@ After following the Spring documentation <a href="http://static.springsource.org
   
   <entry>
     <title type="html"><![CDATA[Unity3D and JSON parsing]]></title>
-    <link href="http://joekr.github.com/blog/2011/04/21/unity3d-and-json-parsing/"/>
+    <link href="http://joekr.github.com/blog/unity3d-and-json-parsing/"/>
     <updated>2011-04-21T21:54:00-04:00</updated>
-    <id>http://joekr.github.com/blog/2011/04/21/unity3d-and-json-parsing</id>
+    <id>http://joekr.github.com/blog/unity3d-and-json-parsing</id>
     <content type="html"><![CDATA[<p>Today I was working on a Unity3D web player project that requires pulling JSON from a remote server. I needed a way to parse the JSON string. After working with multiple JSON libraries (Jayrock being the main one) I found that LitJson worked well with in Unity once you had the DLL.
 I was unable to get Jayrock to work with Unity's web player. Turns out that Unity desktop builds use a subset of the Mono SDK, which can be changed to use the full SDK. However, the web player can not be changed, limiting access to System.web which is needed by Jayrock.</p>
 

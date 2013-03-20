@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SVN | Joe Kratzat]]></title>
   <link href="http://joekr.github.com/blog/categories/svn/atom.xml" rel="self"/>
   <link href="http://joekr.github.com/"/>
-  <updated>2013-03-19T22:40:02-04:00</updated>
+  <updated>2013-03-19T23:12:30-04:00</updated>
   <id>http://joekr.github.com/</id>
   <author>
     <name><![CDATA[Joe Kratzat]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git: a powerful front-end to Subversion]]></title>
-    <link href="http://joekr.github.com/blog/2012/01/28/git-a-powerful-front-end-to-subversion/"/>
+    <link href="http://joekr.github.com/blog/git-a-powerful-front-end-to-subversion/"/>
     <updated>2012-01-28T22:13:00-05:00</updated>
-    <id>http://joekr.github.com/blog/2012/01/28/git-a-powerful-front-end-to-subversion</id>
+    <id>http://joekr.github.com/blog/git-a-powerful-front-end-to-subversion</id>
     <content type="html"><![CDATA[<p><a href="http://git-scm.com/">Git</a> is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.</p>
 
 <p>When I had to move back to <a href="http://subversion.apache.org/">SVN</a> I didn't really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a <a href="http://schacon.github.com/git/git-svn.html">svn command</a> which allows me to use Git as my front end to SVN.</p>

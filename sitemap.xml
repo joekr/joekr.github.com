@@ -1,45 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://joekr.github.com/blog/2011/04/18/a-little-fun-at-mobilex/</loc>
-        <lastmod>2013-03-19T22:37:47-04:00</lastmod>
+        <loc>http://joekr.github.com/blog/a-little-fun-at-mobilex/</loc>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
-        <loc>http://joekr.github.com/blog/2011/04/21/unity3d-and-json-parsing/</loc>
-        <lastmod>2013-03-19T22:37:11-04:00</lastmod>
+        <loc>http://joekr.github.com/blog/unity3d-and-json-parsing/</loc>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
-        <loc>http://joekr.github.com/blog/2012/01/28/git-a-powerful-front-end-to-subversion/</loc>
-        <lastmod>2013-03-19T22:38:57-04:00</lastmod>
+        <loc>http://joekr.github.com/blog/git-a-powerful-front-end-to-subversion/</loc>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
-        <loc>http://joekr.github.com/blog/2012/09/26/spring-ws-soap-no-adapter-for-endpoint/</loc>
-        <lastmod>2013-03-19T22:39:28-04:00</lastmod>
+        <loc>http://joekr.github.com/blog/spring-ws-soap-no-adapter-for-endpoint/</loc>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
         <loc>
-            http://joekr.github.com/blog/2012/12/31/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/
+            http://joekr.github.com/blog/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/
         </loc>
-        <lastmod>2013-03-19T22:39:56-04:00</lastmod>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
-        <loc>http://joekr.github.com/blog/2013/02/04/just-commit/</loc>
-        <lastmod>2013-03-19T22:17:42-04:00</lastmod>
+        <loc>http://joekr.github.com/blog/just-commit/</loc>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://joekr.github.com/blog/archives/</loc>
-        <lastmod>2013-03-19T22:39:56-04:00</lastmod>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://joekr.github.com/</loc>
-        <lastmod>2013-03-19T22:39:56-04:00</lastmod>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://joekr.github.com/publications/</loc>
-        <lastmod>2013-03-19T21:06:48-04:00</lastmod>
+        <lastmod>2013-03-19T23:08:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://joekr.github.com/robots.txt</loc>
-        <lastmod>2013-03-19T20:35:04-04:00</lastmod>
+        <lastmod>2013-03-19T23:04:11-04:00</lastmod>
     </url>
 </urlset>
