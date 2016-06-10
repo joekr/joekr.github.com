@@ -1,0 +1,9 @@
+baseurl = "http://joekratzat.com/"
+languageCode = "en-us"
+title = "Joe Kratzat"
+theme = "hugo-theme-crisp"
+googleAnalytics = "UA-22815649-1"
+
+[Params]
+
+disqus = "joekratzatcom"
