@@ -2,6 +2,6 @@ box: debian
 build:
   steps:
     - arjen/hugo-build:
-        version: "1.10"
+        version: "0.16"
         theme: hugo-theme-crisp
         flags: --buildDrafts=false
