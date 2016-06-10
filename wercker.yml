@@ -12,4 +12,5 @@ deploy:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
         domain: joekratzat.com
+        repo: joekr/joekr.github.com   
         basedir: public
