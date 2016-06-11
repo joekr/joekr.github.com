@@ -3,7 +3,7 @@ build:
   steps:
     - arjen/hugo-build:
         version: "0.16"
-        theme: hugo-theme-crisp
+        theme: ghostwriter
         flags: --buildDrafts=false
 deploy:
   steps:
@@ -12,5 +12,5 @@ deploy:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
         domain: joekratzat.com
-        repo: joekr/joekr.github.com   
+        repo: joekr/joekr.github.com
         basedir: public

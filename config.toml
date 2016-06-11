@@ -1,9 +1,40 @@
 baseurl = "http://joekratzat.com/"
 languageCode = "en-us"
 title = "Joe Kratzat"
-theme = "hugo-theme-crisp"
+theme = "ghostwriter"
+copyright = "Joe Kratzat"
 googleAnalytics = "UA-22815649-1"
+disqusShortname = "joekratzatcom"
+
+[Author]
+    name = "Joe"
+    profile = "http://github.com/joekr"
 
 [Params]
+    intro = true
+    description = "Software Engineer exploring and learning"
+    github = "http://github.com/joekr"
+    linkedin = "http://linkedin.com/in/joekratzat"
+    twitter = "http://twitter.com/joekratzat"
+    stackoverflow = "http://stackoverflow.com/users/993555/joe?tab=profile"
 
-disqus = "joekratzatcom"
+[Permalinks]
+    post = "/blog/:year/:filename/"
+
+[Taxonomies]
+    tag = "tags"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "/page/about/"
+    weight = 2
+
+[[menu.main]]
+    name = "Publications"
+    url = "/page/publications/"
+    weight = 3
