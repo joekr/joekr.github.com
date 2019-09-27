@@ -3,7 +3,7 @@ build:
   steps:
     - arjen/hugo-build:
         version: "0.16"
-        theme: hugo-coder
+        theme: ghostwriter
         flags: --buildDrafts=false
 deploy:
   steps:
