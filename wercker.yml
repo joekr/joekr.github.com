@@ -2,8 +2,8 @@ box: debian
 build:
   steps:
     - arjen/hugo-build:
-        version: "0.16"
-        theme: ghostwriter
+        version: "0.58.3"
+        theme: hugo-coder
         flags: --buildDrafts=false
 deploy:
   steps:
