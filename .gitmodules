@@ -2,6 +2,3 @@
 	path = public
 	url = git@github.com:joekr/joekr.github.com.git
 	branch = master
-[submodule "themes/hugo-coder"]
-	path = themes/hugo-coder
-	url = git@github.com:luizdepra/hugo-coder.git
