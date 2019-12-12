@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Objective-C on </title>
+    <link>http://joekratzat.com/tags/objective-c/</link>
+    <description>Recent content in Objective-C on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Joe Kratzat</copyright>
+    <lastBuildDate>Mon, 31 Dec 2012 21:43:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://joekratzat.com/tags/objective-c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Objective-C Blocks vs NSNotificationCenter for async completion</title>
+      <link>http://joekratzat.com/post/2012/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/</link>
+      <pubDate>Mon, 31 Dec 2012 21:43:00 -0500</pubDate>
+      
+      <guid>http://joekratzat.com/post/2012/objective-c-blocks-vs-nsnotificationcenter-for-async-completion/</guid>
+      <description>I&amp;rsquo;m working on a project that was created pre iOS 4.0, and is now only supporting iOS 4 and later. This means I am able to finally use Blocks. So what was being used to inform an object when a called async method passed or failed? NSNotificationCenter. This was the original code and it worked pretty well:
+ It allowed the method getSubscriptionFromServer to inform the caller in the Subscription class to know when getSubscriptionFromServer was complete, or failed.</description>
+    </item>
+    
+  </channel>
+</rss>

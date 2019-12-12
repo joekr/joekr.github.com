@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DeveloperTown on </title>
+    <link>http://joekratzat.com/tags/developertown/</link>
+    <description>Recent content in DeveloperTown on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Joe Kratzat</copyright>
+    <lastBuildDate>Mon, 18 Apr 2011 22:18:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://joekratzat.com/tags/developertown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Little Fun At MobileX</title>
+      <link>http://joekratzat.com/post/2011/a-little-fun-at-mobilex/</link>
+      <pubDate>Mon, 18 Apr 2011 22:18:00 -0500</pubDate>
+      
+      <guid>http://joekratzat.com/post/2011/a-little-fun-at-mobilex/</guid>
+      <description>A coworker and I attened MobileX in Lexington Ky this past week. It was a great time! Since we are a new smaller company we thought we should promote the company, but how? After much discussion the idea of having a simple shirt won (time/money constraints). The front had the company name while the back had a logo. It was pretty good, but we felt it needed just a bit more.</description>
+    </item>
+    
+  </channel>
+</rss>

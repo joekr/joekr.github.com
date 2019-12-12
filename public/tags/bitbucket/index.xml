@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitbucket on </title>
+    <link>http://joekratzat.com/tags/bitbucket/</link>
+    <description>Recent content in Bitbucket on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Joe Kratzat</copyright>
+    <lastBuildDate>Tue, 21 May 2013 22:11:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://joekratzat.com/tags/bitbucket/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jenkins and bitbucket</title>
+      <link>http://joekratzat.com/post/2013/jenkins-and-bitbucket/</link>
+      <pubDate>Tue, 21 May 2013 22:11:00 -0500</pubDate>
+      
+      <guid>http://joekratzat.com/post/2013/jenkins-and-bitbucket/</guid>
+      <description>Tonight I had to setup a new instance of Jenkins. Having never set Jenkins to work with Bitbucket before I thought this might help out others. This will cover Jenkins accessing only Bitbucket, having it deploy might be another post, but that isn&amp;rsquo;t covered here.
+Jenkins install Starting out, I have a blank Digital Ocean droplet. There is basically nothing. I had to install Jenkins, which is pretty basic:</description>
+    </item>
+    
+  </channel>
+</rss>

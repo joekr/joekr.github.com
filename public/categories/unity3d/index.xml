@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unity3D on </title>
+    <link>http://joekratzat.com/categories/unity3d/</link>
+    <description>Recent content in Unity3D on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Joe Kratzat</copyright>
+    <lastBuildDate>Thu, 21 Apr 2011 21:54:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://joekratzat.com/categories/unity3d/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unity3D and JSON parsing</title>
+      <link>http://joekratzat.com/post/2011/unity3d-and-json-parsing/</link>
+      <pubDate>Thu, 21 Apr 2011 21:54:00 -0500</pubDate>
+      
+      <guid>http://joekratzat.com/post/2011/unity3d-and-json-parsing/</guid>
+      <description>Today I was working on a Unity3D web player project that requires pulling JSON from a remote server. I needed a way to parse the JSON string. After working with multiple JSON libraries (Jayrock being the main one) I found that LitJson worked well with in Unity once you had the DLL. I was unable to get Jayrock to work with Unity&amp;rsquo;s web player. Turns out that Unity desktop builds use a subset of the Mono SDK, which can be changed to use the full SDK.</description>
+    </item>
+    
+  </channel>
+</rss>

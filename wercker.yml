@@ -1,0 +1,16 @@
+box: debian
+build:
+  steps:
+    - arjen/hugo-build:
+        version: "0.58.3"
+        theme: hugo-coder
+        flags: --buildDrafts=false
+deploy:
+  steps:
+    - install-packages:
+        packages: git ssh-client
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: joekratzat.com
+        repo: joekr/joekr.github.com
+        basedir: public
