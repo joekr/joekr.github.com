@@ -74,3 +74,8 @@ pygmentscodefencesguesssyntax = true
     icon = "fab fa-linkedin"
     weight = 4
     url = "http://linkedin.com/in/joekratzat"
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "post"
