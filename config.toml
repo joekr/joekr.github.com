@@ -79,3 +79,8 @@ pygmentscodefencesguesssyntax = true
     name = "Blog"
     weight = 1
     url  = "post"
+[[menu.main]]
+    name = "Quotes"
+    weight = 2
+    url = "quotes"
+
