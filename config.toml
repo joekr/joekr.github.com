@@ -82,5 +82,5 @@ pygmentscodefencesguesssyntax = true
 [[menu.main]]
     name = "Quotes"
     weight = 2
-    url = "quotes"
+    url = "page/quotes"
 
