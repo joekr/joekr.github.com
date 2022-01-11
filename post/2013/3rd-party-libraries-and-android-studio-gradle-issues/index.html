@@ -1,15 +1,95 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Joe Kratzat"><meta name=description content="Joe Kratzat's personal website"><meta name=keywords content=blog,developer,personal><meta name=twitter:card content=summary><meta name=twitter:title content="3rd party libraries and Android Studio Gradle issues"><meta name=twitter:description content="I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.
-The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0."><meta property=og:title content="3rd party libraries and Android Studio Gradle issues"><meta property=og:description content="I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.
-The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0."><meta property=og:type content=article><meta property=og:url content=https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/><meta property=article:published_time content=2013-10-23T15:35:00-05:00><meta property=article:modified_time content=2013-10-23T15:35:00-05:00><base href=https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/><title>3rd party libraries and Android Studio Gradle issues ·</title><link rel=canonical href=https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/><link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16><meta name=generator content="Hugo 0.58.3"></head><body><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://joekratzat.com/></a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://joekratzat.com/post>Blog</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1>3rd party libraries and Android Studio Gradle issues</h1><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic"><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css></header><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script><p>I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.</p><p>The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0.5.</p><p>I was getting gradle build errors, and Android Studio import errors. I needed to update my project <code>build.gradle</code> file as well as all the libraries. This meant I needed to go and edit the <code>build.gradle</code> file manually (<a href=http://tools.android.com/recent/androidstudio030released>0.3 fixes this issue</a>), and change:</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>dependencies {
-  classpath &#39;com.android.tools.build:gradle:0.4.2&#39;
-}</pre></div><p>to</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>dependencies {
-  classpath &#39;com.android.tools.build:gradle:0.5&#39;
-}</pre></div><p>Doing this for the main app was not an issue, however some of the libraries I did not have access to like <a href=https://github.com/JakeWharton/ActionBarSherlock>ActionBarSherlock</a>. I had to fork the repo and update the gradle version.</p><p>For other projects like <a href=https://github.com/jfeinstein10/SlidingMenu>SlidingMenu</a> I needed to fork it and setup a <code>build.gradle</code> file manually. This is my default <a href=https://gist.github.com/joekr/7128972>build.gradle</a> file</p><p>Lastly, for <a href=https://android.googlesource.com/platform/frameworks/volley/>Volley</a> I had to create a new repo and add the followling:</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>buildscript {
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Joe Kratzat">
+<meta name=description content="Joe Kratzat's personal website">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="3rd party libraries and Android Studio Gradle issues">
+<meta name=twitter:description content="I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.
+The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0.">
+<meta property="og:title" content="3rd party libraries and Android Studio Gradle issues">
+<meta property="og:description" content="I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.
+The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2013-10-23T15:35:00-05:00">
+<meta property="article:modified_time" content="2013-10-23T15:35:00-05:00">
+<base href=https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/>
+<title>
+3rd party libraries and Android Studio Gradle issues ·
+</title>
+<link rel=canonical href=https://joekratzat.com/post/2013/3rd-party-libraries-and-android-studio-gradle-issues/>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet>
+<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous>
+<link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz+DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=https://joekratzat.com/>
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/post>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/quotes>Quotes</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container page">
+<article>
+<header>
+<h1>3rd party libraries and Android Studio Gradle issues</h1>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+</header>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+<p>I want to start this off by saying that this was for Android Studio 0.2 and at the time of this post that is already outdated. However, I feel this might help others.</p>
+<p>The project I was working on was currently using an older version of the Android Gradle plugin (0.4.2) with and older version of Android Studio. I had version 0.2 which requires the Android Gradle plugin minimum of 0.5.</p>
+<p>I was getting gradle build errors, and Android Studio import errors. I needed to update my project <code>build.gradle</code> file as well as all the libraries. This meant I needed to go and edit the <code>build.gradle</code> file manually (<a href=http://tools.android.com/recent/androidstudio030released>0.3 fixes this issue</a>), and change:</p>
+<pre><code>dependencies {
+  classpath 'com.android.tools.build:gradle:0.4.2'
+}
+</code></pre>
+<p>to</p>
+<pre><code>dependencies {
+  classpath 'com.android.tools.build:gradle:0.5'
+}
+</code></pre>
+<p>Doing this for the main app was not an issue, however some of the libraries I did not have access to like <a href=https://github.com/JakeWharton/ActionBarSherlock>ActionBarSherlock</a>. I had to fork the repo and update the gradle version.</p>
+<p>For other projects like <a href=https://github.com/jfeinstein10/SlidingMenu>SlidingMenu</a> I needed to fork it and setup a <code>build.gradle</code> file manually. This is my default <a href=https://gist.github.com/joekr/7128972>build.gradle</a> file</p>
+<p>Lastly, for <a href=https://android.googlesource.com/platform/frameworks/volley/>Volley</a> I had to create a new repo and add the followling:</p>
+<pre><code>buildscript {
   repositories {
       mavenCentral()
   }
   dependencies {
-      classpath &#39;com.android.tools.build:gradle:0.5+&#39;
+      classpath 'com.android.tools.build:gradle:0.5+'
   }
-}</pre></div><p>I&rsquo;m not sure if doing this is the best way, but it allowed my project to build and seems to be working. I have seen others doing the same thing, like <a href=https://github.com/path/ActionBarSherlock>Path&rsquo;s ActionBarSherlock</a>.</p><p>If I find a better way to do this you better believe I will post an update. This just seems gross to me.</p></article></section></div><footer class=footer><section class=container></section></footer></main><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script></body></html>
+}
+</code></pre>
+<p>I&rsquo;m not sure if doing this is the best way, but it allowed my project to build and seems to be working. I have seen others doing the same thing, like <a href=https://github.com/path/ActionBarSherlock>Path&rsquo;s ActionBarSherlock</a>.</p>
+<p>If I find a better way to do this you better believe I will post an update. This just seems gross to me.</p>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+</section>
+</footer>
+</main>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+</body>
+</html>

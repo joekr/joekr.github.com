@@ -1,4 +1,83 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Joe Kratzat"><meta name=description content="Joe Kratzat's personal website"><meta name=keywords content=blog,developer,personal><meta name=twitter:card content=summary><meta name=twitter:title content="Git: a powerful front-end to Subversion"><meta name=twitter:description content="Git is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.
-When I had to move back to SVN I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a svn command which allows me to use Git as my front end to SVN."><meta property=og:title content="Git: a powerful front-end to Subversion"><meta property=og:description content="Git is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.
-When I had to move back to SVN I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a svn command which allows me to use Git as my front end to SVN."><meta property=og:type content=article><meta property=og:url content=https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/><meta property=article:published_time content=2012-01-28T22:13:00-05:00><meta property=article:modified_time content=2012-01-28T22:13:00-05:00><base href=https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/><title>Git: a powerful front-end to Subversion ·</title><link rel=canonical href=https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/><link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16><meta name=generator content="Hugo 0.58.3"></head><body><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://joekratzat.com/></a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://joekratzat.com/post>Blog</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1>Git: a powerful front-end to Subversion</h1><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic"><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css></header><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script><p><a href=http://git-scm.com/>Git</a> is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.</p><p>When I had to move back to <a href=http://subversion.apache.org/>SVN</a> I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a <a href=http://schacon.github.com/git/git-svn.html>svn command</a> which allows me to use Git as my front end to SVN.</p><p>What do I mean by front end? Basically, I use Git on my development machine, and use the git svn command to push/pull code from the SVN Server. Git is how I interact with SVN.</p><p>Why, if SVN is already being used, would you use Git? SVN is used in many code bases I have been working on lately, but that doesn&rsquo;t mean I can&rsquo;t still use the advantages of Git.</p><p><strong>Branching and merging:</strong> I&rsquo;m sure, like me, you have tasks that change quickly. On a daily basis I need to switch from working on a new feature, fixing bugs, etc. Git allows me to switch from a feature branch I&rsquo;m currently working on, to a new branch for a bug/fix then merge the new branch and push upstream. Then finally get back into my larger feature branch.</p><p>Typically with SVN or other CVSs this is a bit more challenging. Many times I would have to say &ldquo;Hold on while I get to a good stopping point&rdquo;. With Git I temporarily save my changes (Stash - will talk about a bit later) and create a new branch and start working.</p><p><strong>Working Locally:</strong> I don&rsquo;t have to comment feature code out just to make sure it is checked in. Since Git is a <a href=http://en.wikipedia.org/wiki/Distributed_revision_control>DVCS</a> I can store all my changes locally, to later be pushed to SVN when ready. This allows me to <a href=http://www.codinghorror.com/blog/2008/08/check-in-early-check-in-often.html>check in early and often</a> locally without messing up a co-worker by having crazy comment code strewn about the code base. I can make sure my feature is fully ready, and tested, before pushing upstream for all to use.</p><p><strong>Stashing:</strong> As mentioned before Git allows me to temporarly check in current code changes. Many times someone will point out a trivial issue in the code which needs to be in production &ldquo;now&rdquo;. With <a href=http://book.git-scm.com/4_stashing.html>git stash</a> I can save whatever it is I&rsquo;m working on with out having to check in non-working code, again saving me time to not have to be in &ldquo;a good stopping point&rdquo;.</p><p>There are many other features Git has, these are the ones that make it a great front end for SVN. Using git svn not only saves me time, but it allows me to keep my code out of the master SVN repository until it is good and ready. I can count the number of times I have been working in newly pulled code only to find something is broken because line 23 in some file should have been commented out. Since I don&rsquo;t like when others do that I choose to use Git to help make everyones lives a bit easier. What is the old saying: Do unto others as you would have them do to you.</p><p>Two tutorials that helped me:</p><ul><li><a href=http://www.viget.com/extend/effectively-using-git-with-subversion/>http://www.viget.com/extend/effectively-using-git-with-subversion/</a></li><li><a href=http://nvie.com/posts/a-successful-git-branching-model/>http://nvie.com/posts/a-successful-git-branching-model/</a></li></ul></article></section></div><footer class=footer><section class=container></section></footer></main><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script></body></html>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Joe Kratzat">
+<meta name=description content="Joe Kratzat's personal website">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Git: a powerful front-end to Subversion">
+<meta name=twitter:description content="Git is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.
+When I had to move back to SVN I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a svn command which allows me to use Git as my front end to SVN.">
+<meta property="og:title" content="Git: a powerful front-end to Subversion">
+<meta property="og:description" content="Git is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.
+When I had to move back to SVN I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a svn command which allows me to use Git as my front end to SVN.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2012-01-28T22:13:00-05:00">
+<meta property="article:modified_time" content="2012-01-28T22:13:00-05:00">
+<base href=https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/>
+<title>
+Git: a powerful front-end to Subversion ·
+</title>
+<link rel=canonical href=https://joekratzat.com/post/2012/git-a-powerful-front-end-to-subversion/>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet>
+<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous>
+<link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz+DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=https://joekratzat.com/>
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/post>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/quotes>Quotes</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container page">
+<article>
+<header>
+<h1>Git: a powerful front-end to Subversion</h1>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+</header>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+<p><a href=http://git-scm.com/>Git</a> is a great version control system. I have used it for some time on many different projects and I really enjoy working with it. My life is bit simpler because of Git.</p>
+<p>When I had to move back to <a href=http://subversion.apache.org/>SVN</a> I didn&rsquo;t really like the idea of losing local features branches, stashing , and easy merging. Luckily, Git has the a <a href=http://schacon.github.com/git/git-svn.html>svn command</a> which allows me to use Git as my front end to SVN.</p>
+<p>What do I mean by front end? Basically, I use Git on my development machine, and use the git svn command to push/pull code from the SVN Server. Git is how I interact with SVN.</p>
+<p>Why, if SVN is already being used, would you use Git? SVN is used in many code bases I have been working on lately, but that doesn&rsquo;t mean I can&rsquo;t still use the advantages of Git.</p>
+<p><strong>Branching and merging:</strong> I&rsquo;m sure, like me, you have tasks that change quickly. On a daily basis I need to switch from working on a new feature, fixing bugs, etc. Git allows me to switch from a feature branch I&rsquo;m currently working on, to a new branch for a bug/fix then merge the new branch and push upstream. Then finally get back into my larger feature branch.</p>
+<p>Typically with SVN or other CVSs this is a bit more challenging. Many times I would have to say &ldquo;Hold on while I get to a good stopping point&rdquo;. With Git I temporarily save my changes (Stash - will talk about a bit later) and create a new branch and start working.</p>
+<p><strong>Working Locally:</strong> I don&rsquo;t have to comment feature code out just to make sure it is checked in. Since Git is a <a href=http://en.wikipedia.org/wiki/Distributed_revision_control>DVCS</a> I can store all my changes locally, to later be pushed to SVN when ready. This allows me to <a href=http://www.codinghorror.com/blog/2008/08/check-in-early-check-in-often.html>check in early and often</a> locally without messing up a co-worker by having crazy comment code strewn about the code base. I can make sure my feature is fully ready, and tested, before pushing upstream for all to use.</p>
+<p><strong>Stashing:</strong> As mentioned before Git allows me to temporarly check in current code changes. Many times someone will point out a trivial issue in the code which needs to be in production &ldquo;now&rdquo;. With <a href=http://book.git-scm.com/4_stashing.html>git stash</a> I can save whatever it is I&rsquo;m working on with out having to check in non-working code, again saving me time to not have to be in &ldquo;a good stopping point&rdquo;.</p>
+<p>There are many other features Git has, these are the ones that make it a great front end for SVN. Using git svn not only saves me time, but it allows me to keep my code out of the master SVN repository until it is good and ready. I can count the number of times I have been working in newly pulled code only to find something is broken because line 23 in some file should have been commented out. Since I don&rsquo;t like when others do that I choose to use Git to help make everyones lives a bit easier. What is the old saying: Do unto others as you would have them do to you.</p>
+<p>Two tutorials that helped me:</p>
+<ul>
+<li><a href=http://www.viget.com/extend/effectively-using-git-with-subversion/>http://www.viget.com/extend/effectively-using-git-with-subversion/</a></li>
+<li><a href=http://nvie.com/posts/a-successful-git-branching-model/>http://nvie.com/posts/a-successful-git-branching-model/</a></li>
+</ul>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+</section>
+</footer>
+</main>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+</body>
+</html>

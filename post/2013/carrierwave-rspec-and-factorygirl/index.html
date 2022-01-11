@@ -1,11 +1,68 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Joe Kratzat"><meta name=description content="Joe Kratzat's personal website"><meta name=keywords content=blog,developer,personal><meta name=twitter:card content=summary><meta name=twitter:title content="Carrierwave, RSpec and FactoryGirl"><meta name=twitter:description content="As part of a project I wanted to run some rspec tests on a model that had many children models using Carrierwave to upload files to S3.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Joe Kratzat">
+<meta name=description content="Joe Kratzat's personal website">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Carrierwave, RSpec and FactoryGirl">
+<meta name=twitter:description content="As part of a project I wanted to run some rspec tests on a model that had many children models using Carrierwave to upload files to S3.
 My models look something like this:
-class User &lt; ActiveRecord::Base ... has_many :images ... end class Image &lt; ActiveRecord::Base ... belongs_to :user validates_presence_of :file ... mount_uploader :file, FileUploader ... end In order to this I needd a few things:
- Rspec Tests Store files locally (not on S3) Clean up locally created files  Creating the test object To help create the test objects I use FactoryGirl."><meta property=og:title content="Carrierwave, RSpec and FactoryGirl"><meta property=og:description content="As part of a project I wanted to run some rspec tests on a model that had many children models using Carrierwave to upload files to S3.
+class User < ActiveRecord::Base ... has_many :images ... end class Image < ActiveRecord::Base ... belongs_to :user validates_presence_of :file ... mount_uploader :file, FileUploader ... end In order to this I needd a few things:
+ Rspec Tests Store files locally (not on S3) Clean up locally created files  Creating the test object To help create the test objects I use FactoryGirl.">
+<meta property="og:title" content="Carrierwave, RSpec and FactoryGirl">
+<meta property="og:description" content="As part of a project I wanted to run some rspec tests on a model that had many children models using Carrierwave to upload files to S3.
 My models look something like this:
-class User &lt; ActiveRecord::Base ... has_many :images ... end class Image &lt; ActiveRecord::Base ... belongs_to :user validates_presence_of :file ... mount_uploader :file, FileUploader ... end In order to this I needd a few things:
- Rspec Tests Store files locally (not on S3) Clean up locally created files  Creating the test object To help create the test objects I use FactoryGirl."><meta property=og:type content=article><meta property=og:url content=https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/><meta property=article:published_time content=2013-03-26T21:02:00-05:00><meta property=article:modified_time content=2013-03-26T21:02:00-05:00><base href=https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/><title>Carrierwave, RSpec and FactoryGirl ·</title><link rel=canonical href=https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/><link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16><meta name=generator content="Hugo 0.58.3"></head><body><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://joekratzat.com/></a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://joekratzat.com/post>Blog</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1>Carrierwave, RSpec and FactoryGirl</h1><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic"><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css></header><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script><p>As part of a project I wanted to run some rspec tests on a model that had many children models using <a href=https://github.com/jnicklas/carrierwave>Carrierwave</a> to upload files to S3.</p><p>My models look something like this:</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#fff;font-weight:700>class</span> User &lt; ActiveRecord::Base
+class User < ActiveRecord::Base ... has_many :images ... end class Image < ActiveRecord::Base ... belongs_to :user validates_presence_of :file ... mount_uploader :file, FileUploader ... end In order to this I needd a few things:
+ Rspec Tests Store files locally (not on S3) Clean up locally created files  Creating the test object To help create the test objects I use FactoryGirl.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2013-03-26T21:02:00-05:00">
+<meta property="article:modified_time" content="2013-03-26T21:02:00-05:00">
+<base href=https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/>
+<title>
+Carrierwave, RSpec and FactoryGirl ·
+</title>
+<link rel=canonical href=https://joekratzat.com/post/2013/carrierwave-rspec-and-factorygirl/>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel=stylesheet>
+<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous>
+<link rel=stylesheet href=https://joekratzat.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz+DRsBr08iQK1YWABpw=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=https://joekratzat.com/images/favicon-16x16.png sizes=16x16>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=https://joekratzat.com/>
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/post>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=https://joekratzat.com/quotes>Quotes</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container page">
+<article>
+<header>
+<h1>Carrierwave, RSpec and FactoryGirl</h1>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+</header>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+<p>As part of a project I wanted to run some rspec tests on a model that had many children models using <a href=https://github.com/jnicklas/carrierwave>Carrierwave</a> to upload files to S3.</p>
+<p>My models look something like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#fff;font-weight:700>class</span> User &lt; ActiveRecord::Base
     ...
     has_many <span style=color:#0ff;font-weight:700>:images</span>
     ...
@@ -19,7 +76,17 @@ class User &lt; ActiveRecord::Base ... has_many :images ... end class Image &lt;
     ...
     mount_uploader <span style=color:#0ff;font-weight:700>:file</span>, FileUploader
     ...
-<span style=color:#fff;font-weight:700>end</span></code></pre></div><p>In order to this I needd a few things:</p><ul><li>Rspec Tests</li><li>Store files locally (not on S3)</li><li>Clean up locally created files</li></ul><h1 id=creating-the-test-object>Creating the test object</h1><p>To help create the test objects I use <a href=https://github.com/thoughtbot/factory_girl>FactoryGirl</a>.</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>factory <span style=color:#0ff;font-weight:700>:user</span> <span style=color:#fff;font-weight:700>do</span>
+<span style=color:#fff;font-weight:700>end</span>
+</code></pre></div>
+<p>In order to this I needd a few things:</p>
+<ul>
+<li>Rspec Tests</li>
+<li>Store files locally (not on S3)</li>
+<li>Clean up locally created files</li>
+</ul>
+<h1 id=creating-the-test-object>Creating the test object</h1>
+<p>To help create the test objects I use <a href=https://github.com/thoughtbot/factory_girl>FactoryGirl</a>.</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>factory <span style=color:#0ff;font-weight:700>:user</span> <span style=color:#fff;font-weight:700>do</span>
     ...
     after(<span style=color:#0ff;font-weight:700>:build</span>) <span style=color:#fff;font-weight:700>do</span> |user, <span style=color:#fff;font-weight:700>eval</span>|
         user.images &lt;&lt; FactoryGirl.build(<span style=color:#0ff;font-weight:700>:image</span>, <span style=color:#0ff;font-weight:700>user</span>: user)
@@ -30,7 +97,9 @@ factory <span style=color:#0ff;font-weight:700>:image</span> <span style=color:#
     user <span style=color:#0ff;font-weight:700>:user</span>
 
     file File.open(File.join(Rails.root, <span style=color:#0ff;font-weight:700>&#39;/spec/fixtures/files/image.png&#39;</span>))
-<span style=color:#fff;font-weight:700>end</span></code></pre></div><p>In my user model spec I have the following:</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>describe User <span style=color:#fff;font-weight:700>do</span>
+<span style=color:#fff;font-weight:700>end</span>
+</code></pre></div><p>In my user model spec I have the following:</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>describe User <span style=color:#fff;font-weight:700>do</span>
     it { should have_many <span style=color:#0ff;font-weight:700>:images</span> }
 
     before(<span style=color:#0ff;font-weight:700>:each</span>){
@@ -48,7 +117,10 @@ factory <span style=color:#0ff;font-weight:700>:image</span> <span style=color:#
             @user.images.length.should eq(<span style=color:#ff0;font-weight:700>3</span>)
         <span style=color:#fff;font-weight:700>end</span>
     <span style=color:#fff;font-weight:700>end</span>
-<span style=color:#fff;font-weight:700>end</span></code></pre></div><h1 id=store-local-for-test>Store local for test</h1><p>In production and development I didn&rsquo;t want Carrierwave to use S3 as the storage source. So in the <code>app/uploaders/file_uploader.rb</code> file I removed the line <code>storage :fog</code>. This is now being configured in a new <code>carrierwave.rb</code> initalizer:</p><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#fff;font-weight:700>if</span> Rails.env.test? or Rails.env.cucumber?
+<span style=color:#fff;font-weight:700>end</span>
+</code></pre></div><h1 id=store-local-for-test>Store local for test</h1>
+<p>In production and development I didn&rsquo;t want Carrierwave to use S3 as the storage source. So in the <code>app/uploaders/file_uploader.rb</code> file I removed the line <code>storage :fog</code>. This is now being configured in a new <code>carrierwave.rb</code> initalizer:</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#fff;font-weight:700>if</span> Rails.env.test? or Rails.env.cucumber?
   CarrierWave.configure <span style=color:#fff;font-weight:700>do</span> |config|
     config.storage = <span style=color:#0ff;font-weight:700>:file</span>
     config.enable_processing = <span style=color:#fff;font-weight:700>false</span>
@@ -57,7 +129,9 @@ factory <span style=color:#0ff;font-weight:700>:image</span> <span style=color:#
   CarrierWave.configure <span style=color:#fff;font-weight:700>do</span> |config|
     config.storage = <span style=color:#0ff;font-weight:700>:fog</span>
   <span style=color:#fff;font-weight:700>end</span>
-<span style=color:#fff;font-weight:700>end</span></code></pre></div><h1 id=cleaning-up-files>Cleaning up files</h1><div class=highlight><pre style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>after(<span style=color:#0ff;font-weight:700>:each</span>) <span style=color:#fff;font-weight:700>do</span>
+<span style=color:#fff;font-weight:700>end</span>
+</code></pre></div><h1 id=cleaning-up-files>Cleaning up files</h1>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby>after(<span style=color:#0ff;font-weight:700>:each</span>) <span style=color:#fff;font-weight:700>do</span>
     <span style=color:#fff;font-weight:700>if</span> Rails.env.test? || Rails.env.cucumber?
         @document.versions.each <span style=color:#fff;font-weight:700>do</span> |v|
             store_path = File.dirname(File.dirname(v.document_file.url))
@@ -66,4 +140,16 @@ factory <span style=color:#0ff;font-weight:700>:image</span> <span style=color:#
             FileUtils.rm_rf(Dir[<span style=color:#0ff;font-weight:700>&#34;</span><span style=color:#0ff;font-weight:700>#{</span>temp_path<span style=color:#0ff;font-weight:700>}</span><span style=color:#0ff;font-weight:700>/[^.]*&#34;</span>])
         <span style=color:#fff;font-weight:700>end</span>
     <span style=color:#fff;font-weight:700>end</span>
-<span style=color:#fff;font-weight:700>end</span></code></pre></div></article></section></div><footer class=footer><section class=container></section></footer></main><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-22815649-1','auto');ga('send','pageview');}</script></body></html>
+<span style=color:#fff;font-weight:700>end</span>
+</code></pre></div>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+</section>
+</footer>
+</main>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-22815649-1','auto'),ga('send','pageview'))</script>
+</body>
+</html>
