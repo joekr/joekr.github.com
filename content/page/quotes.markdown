@@ -14,6 +14,7 @@ Below is a list of quotes that I've been keeping in google tasks of all places. 
 These are quotes I've been gathering and keeping for years to help me succinctly summarize my thoughts. This is an un ordered list for a reason.
 
  - Good news, bad news, who can say
+ - Don't self reject
  - You don't need to feel good to get going; you need to get going to give your self a chance at feeling good.
  - A team that encourages and environment where you feel comfortable in failure,  will enable you to thrive
  - leaders are right a lot
