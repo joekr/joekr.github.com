@@ -57,3 +57,15 @@ These are quotes I've been gathering and keeping for years to help me succinctly
  - Don't say yes because you're afraid to say no
  - Nobody in this world can tell me what to think, but everybody has a lesson to teach me.
  - Don't judge your insides by other people's outside.
+ - Life is about not knowing and then doing something anyway
+ - Helpful people don’t ask “how can I help?” They just help.
+ - What's something concrete you did to help someone today?
+ - Nothing you can buy will make you feel as good as something that you create
+ - Be the verb not the noun
+ - Life is simpler when you opt to give people the benefit of the doubt, rather than assuming they are out to get you.
+ - Inspiration not emulation
+ - It's good you're not a natural, I can see your will
+ - If you want to be better than most, do what most won't do.
+ - Some is more than none
+ - The object is not to learn to mimic greatness, but to calibrate our internal meter for greatness.
+ - Quality time is b*******, with the randomness of children you don't know which time will be quality, so you spend as much time as you can with them.
