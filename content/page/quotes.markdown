@@ -69,3 +69,5 @@ These are quotes I've been gathering and keeping for years to help me succinctly
  - Some is more than none
  - The object is not to learn to mimic greatness, but to calibrate our internal meter for greatness.
  - Quality time is b*******, with the randomness of children you don't know which time will be quality, so you spend as much time as you can with them.
+ - Comparison is the thief of joy
+ - Behavior first, thoughts and feelings follow
